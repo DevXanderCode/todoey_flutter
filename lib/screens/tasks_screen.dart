@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TasksScreen extends StatelessWidget {
@@ -47,13 +48,35 @@ class TasksScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-              child: Container(
-            decoration: const BoxDecoration(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0))),
-          ))
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
+                ),
+              ),
+              child: ListView(
+                children: [
+                  ListTile(
+                    title: Text('My First Task'),
+                    trailing: Checkbox(
+                      value: false,
+                      onChanged: (bool? value) {},
+                    ),
+                  ),
+                  ListTile(
+                    title: Text('My second Task'),
+                    trailing: Checkbox(
+                      value: false,
+                      onChanged: (bool? value) {},
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
