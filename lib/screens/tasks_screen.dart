@@ -21,7 +21,7 @@ class TasksScreen extends StatelessWidget {
                       child: AddTaskScreen())));
         },
         backgroundColor: Colors.lightBlueAccent,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
