@@ -15,6 +15,14 @@ class _TasksScreenState extends State<TasksScreen> {
     Task(name: 'Start Aladdin App'),
     Task(name: 'Eat breakfast')
   ];
+
+  void AddTask(String taskName) {
+    print(taskName);
+    setState(() {
+      tasks.add(Task(name: taskName));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,14 +30,19 @@ class _TasksScreenState extends State<TasksScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
-              context: context,
-              isScrollControlled: true,
-              builder: (context) => SingleChildScrollView(
-                  child: Container(
-                      padding: EdgeInsets.only(
-                        bottom: MediaQuery.of(context).viewInsets.bottom,
-                      ),
-                      child: AddTaskScreen())));
+            context: context,
+            isScrollControlled: true,
+            builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: AddTaskScreen(
+                  addTaskFunc: (String taskName) => AddTask(taskName),
+                ),
+              ),
+            ),
+          );
         },
         backgroundColor: Colors.lightBlueAccent,
         child: const Icon(Icons.add),
