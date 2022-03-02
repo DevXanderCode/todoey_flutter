@@ -6,6 +6,7 @@ class AddTaskScreen extends StatelessWidget {
     return Container(
       color: Color(0xFF757575),
       child: Container(
+        padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -13,33 +14,34 @@ class AddTaskScreen extends StatelessWidget {
             topRight: Radius.circular(20.0),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 16.0),
-          child: Column(
-            children: [
-              Text(
-                'Add Task',
-                style: TextStyle(
-                    fontSize: 40.0,
-                    color: Colors.lightBlueAccent,
-                    fontWeight: FontWeight.w500),
-              ),
-              TextField(
-                autofocus: true,
-                textAlign: TextAlign.center,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30.0),
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                      minimumSize: Size(double.infinity, 56.0),
-                      backgroundColor: Colors.lightBlueAccent),
-                  onPressed: null,
-                  child: Text('Add'),
+        child: Column(
+          children: [
+            Text(
+              'Add Task',
+              style: TextStyle(
+                  fontSize: 40.0,
+                  color: Colors.lightBlueAccent,
+                  fontWeight: FontWeight.w500),
+            ),
+            TextField(
+              autofocus: true,
+              textAlign: TextAlign.center,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(double.infinity, 56.0),
+                  backgroundColor: Colors.lightBlueAccent,
                 ),
-              )
-            ],
-          ),
+                onPressed: null,
+                child: Text(
+                  'Add',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
