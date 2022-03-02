@@ -2,8 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoey/widgets/tasks_list.dart';
 import 'package:todoey/screens/add_task_screen.dart';
+import 'package:todoey/models/task.dart';
 
-class TasksScreen extends StatelessWidget {
+class TasksScreen extends StatefulWidget {
+  @override
+  State<TasksScreen> createState() => _TasksScreenState();
+}
+
+class _TasksScreenState extends State<TasksScreen> {
+  List<Task> tasks = [
+    Task(name: 'Work on Maintenance'),
+    Task(name: 'Start Aladdin App'),
+    Task(name: 'Eat breakfast')
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,9 +80,16 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(30.0),
                 ),
               ),
-              child: TasksList(),
+              child: TasksList(
+                tasks: tasks,
+                checkboxCallback: (int index) {
+                  setState(() {
+                    tasks[index].toggleDone();
+                  });
+                },
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
