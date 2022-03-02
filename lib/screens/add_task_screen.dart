@@ -4,10 +4,10 @@ class AddTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFF757575),
+      color: const Color(0xFF757575),
       child: Container(
-        padding: EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(20.0),
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.0),
@@ -16,14 +16,14 @@ class AddTaskScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text(
+            const Text(
               'Add Task',
               style: TextStyle(
                   fontSize: 40.0,
                   color: Colors.lightBlueAccent,
                   fontWeight: FontWeight.w500),
             ),
-            TextField(
+            const TextField(
               autofocus: true,
               textAlign: TextAlign.center,
             ),
