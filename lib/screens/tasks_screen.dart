@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoey/widgets/tasks_list.dart';
 import 'package:todoey/screens/add_task_screen.dart';
 import 'package:todoey/models/task.dart';
+import 'package:todoey/models/task_data.dart';
+import 'package:provider/provider.dart';
 
 class TasksScreen extends StatefulWidget {
   @override
@@ -10,18 +11,13 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  List<Task> tasks = [
-    Task(name: 'Work on Maintenance'),
-    Task(name: 'Start Aladdin App'),
-    Task(name: 'Eat breakfast')
-  ];
-
   void AddTask(String taskName) {
     print(taskName);
-    setState(() {
-      tasks.add(Task(name: taskName));
-      Navigator.pop(context);
-    });
+    // setState(() {
+    //   tasks.add(Task(name: taskName));
+    //
+    // });
+    Navigator.pop(context);
   }
 
   @override
@@ -78,7 +74,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '${tasks.length.toString()} Tasks',
+                  '${Provider.of<TaskData>(context).tasks.length} Tasks',
                   style: TextStyle(fontSize: 18.0, color: Colors.white),
                 )
               ],
@@ -95,11 +91,11 @@ class _TasksScreenState extends State<TasksScreen> {
                 ),
               ),
               child: TasksList(
-                tasks: tasks,
+                tasks: Provider.of<TaskData>(context).tasks,
                 checkboxCallback: (int index) {
-                  setState(() {
-                    tasks[index].toggleDone();
-                  });
+                  // setState(() {
+                  //   tasks[index].toggleDone();
+                  // });
                 },
               ),
             ),
