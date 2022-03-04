@@ -19,13 +19,7 @@ class TasksScreen extends StatelessWidget {
                 padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom,
                 ),
-                child: AddTaskScreen(
-                  addTaskFunc: (String taskName) {
-                    Provider.of<TaskData>(context, listen: false)
-                        .AddTask(taskName);
-                    Navigator.pop(context);
-                  },
-                ),
+                child: AddTaskScreen(),
               ),
             ),
           );
@@ -83,13 +77,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(30.0),
                 ),
               ),
-              child: TasksList(
-                checkboxCallback: (int index) {
-                  // setState(() {
-                  //   tasks[index].toggleDone();
-                  // });
-                },
-              ),
+              child: TasksList(),
             ),
           ),
         ],
