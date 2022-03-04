@@ -5,15 +5,6 @@ import 'package:todoey/models/task_data.dart';
 import 'package:provider/provider.dart';
 
 class TasksScreen extends StatelessWidget {
-  void AddTask(String taskName) {
-    print(taskName);
-    // setState(() {
-    //   tasks.add(Task(name: taskName));
-    //
-    // });
-    // Navigator.pop(context);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +20,11 @@ class TasksScreen extends StatelessWidget {
                   bottom: MediaQuery.of(context).viewInsets.bottom,
                 ),
                 child: AddTaskScreen(
-                  addTaskFunc: (String taskName) => AddTask(taskName),
+                  addTaskFunc: (String taskName) {
+                    Provider.of<TaskData>(context, listen: false)
+                        .AddTask(taskName);
+                    Navigator.pop(context);
+                  },
                 ),
               ),
             ),
@@ -73,7 +68,7 @@ class TasksScreen extends StatelessWidget {
                 ),
                 Text(
                   '${Provider.of<TaskData>(context).taskCount} Tasks',
-                  style: TextStyle(fontSize: 18.0, color: Colors.white),
+                  style: const TextStyle(fontSize: 18.0, color: Colors.white),
                 )
               ],
             ),
