@@ -4,9 +4,9 @@ import 'dart:collection';
 
 class TaskData extends ChangeNotifier {
   final List<Task> _tasks = [
-    Task(name: 'Work on Maintenance'),
-    Task(name: 'Start Aladdin App'),
-    Task(name: 'Eat breakfast')
+    Task(
+        name:
+            'Add task by pressing the FAB, press and hold a task to delete it, press the checkbox to check of a task '),
   ];
 
   UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
@@ -26,8 +26,8 @@ class TaskData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void deleteTask(int taskIdx) {
-    _tasks.removeAt(taskIdx);
+  void deleteTask(Task task) {
+    _tasks.remove(task);
     notifyListeners();
   }
 }

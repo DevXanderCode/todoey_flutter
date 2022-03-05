@@ -18,7 +18,7 @@ class TasksList extends StatelessWidget {
                 Provider.of<TaskData>(context, listen: false).updateTask(task);
               },
               deleteTask: () {
-                Provider.of<TaskData>(context, listen: false).deleteTask(index);
+                Provider.of<TaskData>(context, listen: false).deleteTask(task);
               },
             );
           },
